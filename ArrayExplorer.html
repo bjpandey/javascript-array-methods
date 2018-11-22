@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Array Methods🌎 </title>
+</head>
+<body>
+
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+<script>
+
+    //JavaScript arrays contains different data types at once.
+
+    let array = [1, 2, 3, "Hello Friend", 4.44, true];
+
+
+    //ADDING ITEMS OR OTHER ARRAYS
+
+    let a = [1, 2, 3];
+    a.splice(2, 0, "Git")               //Adding item name 'Git' on 2nd index of array name a and 0 doesn't let items to be removed from 2nd index
+    console.log(a);                     //Results a = [1, 2, Git, 3]
+
+
+    let b = [4, 5, 6];
+    b.push("Git");                      //Adding item(s) to the end of the array name b 
+    console.log(b);                     //Results b = [4, 5, 6, 7]
+
+
+    let c = [7, 8, 9];
+    c.unshift("Git");                   //Adding item(s) to the front of the array name c
+    console.log(c);                     //Results c = [Git, 7, 8, 9]
+
+
+    let d = [10, 11, 12];
+    let e = ["ten", "eleven", "twelve"];
+    let f = d.concat(e);                //Joining array name d to other array name e
+    console.log(f);                     //Results f = [10, 11, 12, "ten", "eleven", "twelve"]
+
+
+
+
+    //REMOVING ITEMS
+
+    let g = [1, 2, 3];
+    g.splice(2, 1);                      //Remove item on the 2nd index of the array name g
+    console.log(g);                     //Results g =[1, 2]
+
+    let h = [4, 5, 6];
+    h.pop();                             //Remove last item of the array name h
+    console.log(h);                     //Results h = [4, 5]
+
+    let i = [7, 8, 9];
+    i.shift();                           //Remove first item of th array name i
+    console.log(i);                     //Results i = [8, 9]
+
+    let j = [10, 11, 12];
+    let slicedArr = j.slice(2);          //Removes two first items from array name j         
+    console.log(slicedArr);             //Results slicedArr = [12]
+
+
+
+    //FINDING ONE OR MORE THAN ONE ITEMS
+
+    let k = [1, 2, 3];
+    console.log(k.includes(1));         //Results 'true'
+
+    let l = [4, 5, 6];
+    console.log(l.indexOf(5));          //Results  index of item name 5 i.e. '1'
+
+    let m = [7, 8, 9];
+    console.log(m.lastIndexOf(7));      //Results  greatest index i.e. '0'
+
+    let n = [10, 11, 12];
+    let isTiny = a => a < 12;           //Arrow function and checking the condition 
+    console.log(n.find(isTiny));        //Results 10, 12
+
+    let o = [5, 1, 8];
+    let isBig = (el) => el > 6;         //Arrow function and checking the condition
+    console.log(o.findIndex(isBig));    //Results the index i.e. 2 
+
+
+    let p = [5, 1, 8];
+    let reduced = (a, b) => a + b;      //Arrow function and adding the items
+    console.log(p.reduce(reduced));     //Results as single value i.e. 14
+
+    let q = [5, 1, 8];
+    [q, [0, 1]].reduceRight((a, b) => {  //Apply a function against an accumulator and each value of the array (from right-to-left) as to reduce it to a single value.
+        return q.concat(b)               //Results [0, 1, 5, 1, 8]
+    }, [])
+
+    let r = [5, 1, 8];
+    let filtered = r.filter(el => el > 4); //Creates a new array with all of the elements of this array for which the provided filtering function returns true.
+    console.log(filtered)                  //Results [5, 8]
+
+
+    let s = [5, 1, 8];
+    let isSmall = (el) => el < 10;        //Returns true if every element in this array satisfies the provided testing function.
+    console.log(s.every(isSmall));       //Results 'true'
+
+
+    let t = [5, 1, 8];
+    let biggerThan4 = (el) => el > 4;    //Returns true if at least one element in this array satisfies the provided testing function.
+    console.log(t.some(biggerThan4));    //Results 'true'
+
+
+    //WALK OVER ITEMS
+
+    let u = [5, 1, 8];
+    u.forEach((element) => {             //The forEach() method executes a provided function once for each array element.
+        console.log(element)                //Results 5, 1, 8
+    });
+
+    let v = [5, 1, 8];
+    let map = v.map(x => x + 1);       //Creates a new array with the results of calling a provided function on every element in this array.
+    console.log(map);                  //Results [6, 2, 9]
+
+    let w = [5, 1, 8];
+    let iterator = w.entries();         //Returns a new Array Iterator object that contains the key/value pairs for each index in the array
+    console.log(iterator.next().value); //Results [0, 5] where the 0 is the index, the 5 is the first number
+
+
+    //RETURNS A STRING
+
+    let x = [5, 1, 8];
+    console.log(x.join());              //Joins all elements of an array into a string and Results "5,1,8"
+
+
+    let y = [5, 1, 8];
+    console.log(y.toString());        //Returns a string representing the array and its elements and Results  "5,1,8"
+
+
+    let z = [5, 1, 8];
+    let date = [new Date()];
+    const arrString = z.toLocaleString();
+    const dateString = date.toLocaleString();   //Returns a localized string representing the array and its elements.
+    console.log(arrString, dateString);        //Results 5,1,8 11/22/2018, 5:08:26 PM (IN MY CASE) depending on the time you run the code
+
+
+    //ORDER AN ARRAY
+
+    let arr = [6, 1, 5];
+    arr.reverse();                 //Reverses the order of the elements of an array in place — the first becomes the last, and the last becomes the first.
+    console.log(arr);                //Results [5, 1, 6]
+
+
+    let arr1 = [9, 19, 11];
+    arr1.sort();                   //Sorts the elements of an array in place and returns the array.
+    console.log(arr1);               //Results [9, 11, 19]
+
+    //SOME OTHER CONDITIONS
+
+    let arr2 = [9, 1, 9];
+    console.log(arr2.length);      //Returns the number of elements in that array and Results 3
+
+    let arr3 = [5, 1, 8];
+    arr3.fill(2);                  //Fills all the elements of an array from a start index to an end index with a static value.
+    console.log(arr3);             //Results arr3 = [2, 2, 2]
+
+
+    let arr4 = [6, 1, 8];
+    arr4.copyWithin(2);            //Copies a sequence of array elements here is 6 within the array where 2 is index of array name arr4
+    console.log(arr4);             //Results [5, 1, 5] 
+
+</script>
+
+</body>
+
+</html>
