@@ -6,4 +6,4 @@ This is a simple project I've done to help other to increse their JS knowledge. 
 #### step 2: Open the file, learn and experiment
 #### step 3: Share your knowledge to others
 
-### Happy Git
+### Happy Git Everyone!
